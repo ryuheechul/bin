@@ -16,4 +16,4 @@ echo -n $_code | pbcopy
 
 # clean up after 60 seconds for security and tidiness
 ## but only if clipboard and the code is still same to avoid cleaning up the wrong data from other programs
-./clear_pb_after.sh 60
+../clear_pb_after.sh 60
