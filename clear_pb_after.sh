@@ -5,4 +5,4 @@ second=$1
 
 original=$(pbpaste)
 
-sleep ${second} && test "${original}" == "$(pbpaste)" && echo -n '' | pbcopy &
+nohup (sleep ${second} && test "${original}" == "$(pbpaste)" && echo -n '' | pbcopy) &
