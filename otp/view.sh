@@ -2,8 +2,8 @@
 
 # https://github.com/evansmurithi/cloak is the tool to retrieve otp code
 
-# this makes it easy to call other script using relative path
-cd "$(dirname "$0")" || exit
+# this makes it easy to call other scripts using relative path
+script_d="$(dirname "$0")"
 
 # accept the name as a input via first argument
 otp_name=$1
@@ -16,4 +16,4 @@ echo -n $_code | pbcopy
 
 # clean up after 60 seconds for security and tidiness
 ## but only if clipboard and the code is still same to avoid cleaning up the wrong data from other programs
-../clear_pb_after.sh 60
+"${script_d}"/../pb/clear_after_async.sh 60
