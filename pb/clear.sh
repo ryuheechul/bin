@@ -5,4 +5,8 @@
 # validating input would be nice but currently just trusting the input
 original="$1"
 
+usage="usage: $0 [text to compare]"
+
+test -z "${original}" && echo "${usage}" && exit 1
+
 test "${original}" == "$(pbpaste)" && echo -n '' | pbcopy
