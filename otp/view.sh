@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # https://github.com/evansmurithi/cloak is the tool to retrieve otp code
 
 # accept the name as a input via first argument
@@ -13,10 +15,10 @@ test -z "${otp_name}" && echo "${usage}" && exit 1
 script_d="$(dirname "$0")"
 
 # get otp code and trim
-_code=$(cloak view ${otp_name} | head -c 6)
+_code=$(cloak view "${otp_name}" | head -c 6)
 
 # add it to clipboard
-echo -n $_code | pbcopy
+echo -n "${_code}" | pbcopy
 
 # clean up after 60 seconds for security and tidiness
 ## but only if clipboard and the code is still same to avoid cleaning up the wrong data from other programs
